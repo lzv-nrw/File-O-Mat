@@ -2,26 +2,72 @@ Kriterium_deu;Erklärung_Kriterium_deu;Frage (deu);Erklärung_deu;Antwort_1;Gewi
 (Hier steht das Kriterium);(Es gibt meistens mehrere Fragen pro Kriterium. Hier steht die Erklärung des Kriteriums. Diese ist dann für alle Fragen zu diesem Kriterium gleich.);(Hier steht die Frage);(Hier steht die Erklärung zur aktuellen Frage. Bei Bedarf kann sie hier genauer erläutert und Beispiele gegeben werden. Zusätzlich können Hilfestellungen gegeben werden, wie man Antworten findet, z.B. eine Google-Suche, spezifisch auf das eingegebene Format vorformuliert. Oder ein Link zur Suche in PRONOM, mit einem Hinweis, in welchem Feld sich die gesuchte Information findet.);Antwort 1;0;Antwort 2;0;Sonstige;0;;;;
 Offenlegungsgrad;"Ist das Dateiformat offen dokumentiert?
 
-Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden können.";Ist das Dateiformat offen spezifiziert?;"Anders gefragt, ist das Recht die Spezifikation zu lesen, anzuwenden, und basierend darauf Werkzeuge zu entwickeln, nicht eingeschränkt?
+Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden können.";Ist das Dateiformat offen spezifiziert?;"Anders gefragt, hat jede:r das Recht, die Spezifikation zu lesen, anzuwenden, und basierend darauf, Werkzeuge zu entwickeln?
 
 Die offene Standardisierung von Dateiformaten erlaubt es im Fall der Formatobsoleszenz, Lese- und Konvertierungsprogramme neu zu erstellen.
 
-Siehe z.B. [Wikipedia - Offenes Format](https://de.wikipedia.org/wiki/Offenes_Format)";Ja;2;Nein;0;Sonstige;0;;;;
-Transparenzgrad;"Ist es einfach, das Dateiformat zu analysieren?
+Siehe z.B. [Wikipedia - Offenes Format](https://de.wikipedia.org/wiki/Offenes_Format)
 
-Je weniger dies der Fall ist, desto höher ist das Risiko, Dateien nur mit unverhältnismäßig hohem Aufwand analysieren zu können.";Ist das Dateiformat menschenlesbar und mittels Texteditor anzeig- und bearbeitbar?;Handelt es sich um eine textbasiertes oder ein Binärformat?;Ja;1;Nein;0;Sonstige;0;;;;
+[Google-Suche: Ist das Dateiformat {selectedFormatName} offen spezifiziert?](https://www.google.com/search?q=Ist das Dateiformat {selectedFormatName} offen spezifiziert?])";Ja;2;Nein;0;1;0;;;;
+Offenlegungsgrad;"Ist das Dateiformat offen dokumentiert?
+
+Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden können.";Gibt es aktuell verfügbare und lauffähige Validierungswerkzeuge?;Für Dateiformate in der digitalen Langzeitarchivierung sollten geeignete Validatoren oder zumindest Referenzimplementierungen zur Verfügung stehen, die eine Beurteilung ermöglichen, inwieweit Dateien von Programmen interpretiert werden können.;Ja;2;Nein;0;Sonstige;1;;;;
+Offenlegungsgrad;"Ist das Dateiformat offen dokumentiert?
+
+Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden können.";Ist das Dateiformat durch eine internationale Standardisierungsorganisation geprüft und als Standard veröffentlicht?;"Es ist von Vorteil, wenn ein Dateiformat international als Standard anerkannt ist.
+
+[Google-Suche: Ist das Dateiformat {selectedFormatName} durch eine internationale Standardisierungsorganisation geprüft und als Standard veröffentlicht?](https://www.google.com/search?q=Ist das Dateiformat {selectedFormatName} durch eine internationale Standardisierungsorganisation geprüft und als Standard veröffentlicht?])";Ja;2;Nein;0;Sonstige;1;;;;
 Adoptionsgrad;"Ist das Dateiformat weit verbreitet? 
 
 Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil niemand das Dateiformat kennt und es nicht einmal mehr anzeigbar ist.
 
-Weitverbreitete Dateiformate bringen es mit sich, dass das Formatwissen über diese stärker verbreitet und für die Nachwelt eher dokumentiert ist. Hinzu kommt, dass die Verfügbarkeit von geeigneter Software mit hoher Wahrscheinlichkeit länger gegeben ist.";Wird das Dateiformat durch Behörden und öffentliche Einrichtungen häufig verwendet?;(Kontext und Beispiele geben);Ja;1;Nein;0;Sonstige;0;;;;
+Weitverbreitete Dateiformate bringen es mit sich, dass das Formatwissen über diese stärker verbreitet und für die Nachwelt eher dokumentiert ist. Hinzu kommt, dass die Verfügbarkeit von geeigneter Software mit hoher Wahrscheinlichkeit länger gegeben ist.";Wird das Dateiformat aktiv betreut?;"Für die Risikoprognose ist es sehr vorteilhaft, wenn ein Format durch eine Vielzahl von Akteur:innen aktiv betreut wird.
+
+[Google-Suche: Wird das Dateiformat {selectedFormatName} aktiv betreut?](https://www.google.com/search?q=Wird das Dateiformat {selectedFormatName} aktiv betreut?])";durch Community;3;durch einzelne, öffentliche Einrichtung;2;durch einzelne Person;1;Gar nicht;0;;
 Transparenzgrad;"Ist es einfach, das Dateiformat zu analysieren?
 
-Je weniger dies der Fall ist, desto höher ist das Risiko, Dateien nur mit unverhältnismäßig hohem Aufwand analysieren zu können.";Ist das Dateiformat menschenlesbar und mittels Texteditor anzeig- und bearbeitbar?;"(Man könnte auch fragen:) Handelt es sich um eine textbasiertes oder ein Binärformat?
+Je weniger dies der Fall ist, desto höher ist das Risiko, Dateien nur mit unverhältnismäßig hohem Aufwand analysieren zu können.";Ist das Dateiformat menschenlesbar und mittels Texteditor anzeig- und bearbeitbar?;"(Vielleicht sollte man noch direkter fragen:) Handelt es sich um eine textbasiertes oder ein Binärformat?
 
-Die direkteste Methode, dies herauszufinden, ist es, eine solche Datei mit einem Texteditor wie Notepad oder TextEdit zu öffnen. Ein textbasiertes Format besteht aus lateinischen Buchstaben. Bei Binärformaten wird man wenig erkennbares lesen können.";Ja;1;Nein;0;Sonstige;0;;;;
-Grad der Alterung;"Wie veraltet oder wie instabil/unerprobt ist das Dateiformat?
+Die direkteste Methode, dies herauszufinden, ist es, eine solche Datei mit einem Texteditor wie Notepad oder TextEdit zu öffnen. Bei Binärformaten wird man wenig Erkennbares lesen können.";Ja;1;Nein;0;Sonstige;0;;;;
+Grad der Selbstdokumentation;"Ist das Dateiformat selbstdokumentiert?
+
+Je weniger dies der Fall ist, desto höher ist das Risiko, dass man ohne externe Metadaten eine Datei nicht zuordnen und analysieren kann.";Enthält das Format eine Selbstbeschreibung durch deskriptive Metadaten?;"Deskriptive Metadaten beschreiben den Inhalt eines digitalen Objektes. Bei einem Textdokument wären dies z.B. Informationen zum Autor oder eine Inhaltsbeschreibung bei Bilddateien wären es z.B. Schlagworte oder Rechteangaben. [Quelle: NESTOR-Wiki](https://wiki.dnb.de/spaces/NESTOR/pages/95651769/Metadaten+Struktur)
+
+[Google-Suche: Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch deskriptive Metadaten?](https://www.google.com/search?q=Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch deskriptive Metadaten?])";Ja;2;Nein;0;Sonstige;0;;;;
+Grad der Selbstdokumentation;"Ist das Dateifomat selbstdokumentiert?
+
+Je weniger dies der Fall ist, desto höher ist das Risiko, dass man ohne externe Metadaten eine Datei nicht zuordnen und analysieren kann.
+
+";Enthält das Format eine Selbstbeschreibung durch technische Metadaten?;"Technische Metadaten beinhalten unter anderem Angaben über das Dateiformat, über die Datenmenge und über die Software, mit der die Datei erstellt worden ist. [Quelle: NESTOR-Wiki](https://wiki.dnb.de/spaces/NESTOR/pages/95651769/Metadaten+Struktur)
+
+[Google-Suche: Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch deskriptive Metadaten?](https://www.google.com/search?q=Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch deskriptive Metadaten?])
+
+Ein Sonderfall ist das sog. Magic Byte, eine Art von Signatur, die sich meist am Dateianfang befindet, die Tools wie DROID eine einfache Identifikation des Dateiformates erlaubt.
+
+[Google-Suche: Enthält das Format {selectedFormatName} ein 'Magic Byte'?](https://www.google.com/search?q=Enthält das Format {selectedFormatName} ein 'Magic Byte'?])";Ja;2;Nein;0;Sonstige;0;;;;
+Grad der Selbstdokumentation;"Ist das Dateifomat selbstdokumentiert?
+
+Je weniger dies der Fall ist, desto höher ist das Risiko, dass man ohne externe Metadaten eine Datei nicht zuordnen und analysieren kann.
+
+";Liegen diese Metadaten in einem anerkannten, internationalen Metadatenstandard vor?;"In Bilddateien sind deskriptive Metadaten wie Schlagworte üblicherweise im IPTC- oder XMP-Standard formatiert. Technische Metadaten werden von Kameras im EXIF-Format aufgezeichnet.
+
+[Google-Suche: Liegen die eingebetteten Metadaten des Dateiformats {selectedFormatName} in einem anerkannten, internationalen Metadatenstandard vor?](https://www.google.com/search?q=Liegen die eingebetteten Metadaten des Dateiformats {selectedFormatName} in einem anerkannten, internationalen Metadatenstandard vor?])";Ja;2;Nein;0;Sonstige;0;;;;
+Grad der Abhängigkeit von externer Hard- und Software;"Ist das Dateiformat abhängig von spezifischer Soft- und Hardware?
+
+Die Fragen helfen, zu ermitteln, ob es sich um ein proprietäres Format handelt. Diese sind mit einem erhöhten Risiko behaftet, dass ein Erhalt der Nutzbarkeit durch Emulation und Formatmigration wegen fehlender Abspielumgebung nicht mehr durchführbar ist.";Benötigt das Dateiformat proprietäre Software, um es anschauen, nutzen und migrieren zu können?;"Es ist von Vorteil, wenn ein Dateiformat mit frei verfügbarer, quelloffener Software verarbeitet werden kann.
+
+[Google-Suche: Benötigt das Dateiformat {selectedFormatName} proprietäre Software, um es verarbeiten zu können?](https://www.google.com/search?q=Benötigt das Dateiformat {selectedFormatName} proprietäre Software, um es verarbeiten zu können?])";Ja;0;Nein;3;Sonstige;1;;;;
+Grad der Lizenz- und Patentabhängigkeit;"Ist das Dateiformat abhängig von Rechten Dritter?
+
+Je mehr dies der Fall ist, desto höher ist das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden dürfen.
+
+Lizenzbehaftete, proprietäre Spezifikationen erschweren den Erhalt, da eine Sicherung der Spezifikationsdokumente notwendig ist und Lizenzgeber über die Zeit nicht mehr verfügbar sein können.";Unterliegt die Formatspezifikation Open-Source-Lizenzbedingungen?;"Open Source-Dateiformate sind von Vorteil, weil meist die Spezifikation vollständig bekannt ist, und der Entwicklung von Tools zur Verarbeitung und Konvertierung keine rechtlichen Hürden entgegen stehen.
+
+[Google-Suche: Unterliegt die Formatspezifikation des Dateiformats {selectedFormatName} Open-Source-Lizenzbedingungen?](https://www.google.com/search?q=Unterliegt die Formatspezifikation des Dateiformats {selectedFormatName} Open-Source-Lizenzbedingungen?])";Ja;3;Nein;0;Sonstige;1;;;;
+Grad der Alterung;"Wie aktuell und stabil ist das Dateiformat?
 
 Die Fragen dienen als Indiz für mögliche Formatobsoleszenz als auch für die Stabilität von Dateiformaten. 
 
-Sie helfen, das Risiko zu bewerten, dass eine Datei nicht gelesen werden kann, weil die Dateiformatspezifikation veraltet oder zu frisch ist. Das geringste Risiko besteht hier für Dateiformate, deren Spezifikation vor längerer Zeit erstmals veröffentlicht wurde und die seitdem aktualisiert wurde.";Wann wurde die Formatspezifikation letztmalig aktualisiert?;(Kontext und Beispiele geben);vor mehr als 30 Jahren ;0;vor 20 Jahren;1;vor 10 Jahren;2;in den letzten 10 Jahren;3;;
+Sie helfen, das Risiko zu bewerten, dass eine Datei nicht gelesen werden kann, weil die Dateiformatspezifikation veraltet oder zu frisch ist. Das geringste Risiko besteht hier für Dateiformate, deren Spezifikation vor längerer Zeit erstmals veröffentlicht wurde und die seitdem aktualisiert wurde.";Wann wurde die Formatspezifikation letztmalig aktualisiert?;"(Kontext und Beispiele geben)
+
+[Google-Suche: Wann wurde die Formatspezifikation für {selectedFormatName} letztmalig aktualisiert?](https://www.google.com/search?q=Wann wurde die Formatspezifikation für {selectedFormatName} letztmalig aktualisiert?)";vor mehr als 30 Jahren ;0;vor 20 Jahren;1;vor 10 Jahren;2;in den letzten 10 Jahren;3;;
