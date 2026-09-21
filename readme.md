@@ -1,6 +1,6 @@
 # File-O-Mat / Evaluate File Formats
 
-Dieses Skript stellt eine Reihe von Fragen, die dabei helfen, Dateiformate auf ihre Eignung zur Langzeitverfügbarkeit zu evaluieren.
+Ein einfach zu bedienender Fragebogen, der hilft, Dateiformate auf ihre Eignung zur Langzeitverfügbarkeit zu evaluieren. Das Ergebnis ist eine nach Kriterien aufgeschlüsselte Risikoanalyse.
 
 Der Fragenkatalog und die Gewichtungen sind einem bash-Skript von Andreas Romeyke/[SLUB Dresden](https://git.slub-dresden.de/digital-preservation/judge_fileformats) übernommen. 
 
