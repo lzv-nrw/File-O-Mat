@@ -8,22 +8,14 @@ body {
 	/* background-image: linear-gradient(#EFC04F, #FFE08F); */ 
 	/* background-attachment: fixed; */
 	}
-
+/*
 /* LINK-Farbe - AUSSER bei der Bootstrap-Klasse "btn" für Buttons. Dort wird der Bootstrap-Standard benutzt. */
 /* LINK-color - EXCEPT for Bootstrap button-class "btn". Use defaults there. */
-a:not(.btn) { color:#000000; text-decoration:underline;}
+/*a:not(.btn) { color:#000000; text-decoration:underline;}
 a:not(.btn):link { color:#000000; } 
 a:not(.btn):visited { color:#404040; }
 a:not(.btn):active { color:#FF0000; }
-a:not(.btn):hover { color:#FF0000; text-decoration:none; }
-
-
-/* Statistik */
-/* Statistics */
-#keepStats { 
-	margin-top:10px; 
-	font-size:90%; 
-	}
+a:not(.btn):hover { color:#FF0000; text-decoration:none; }*/
 
 /* Willkommensnachricht (erster DIV)
    Welcome Message (first DIV) */
@@ -69,3 +61,7 @@ a:not(.btn):hover { color:#FF0000; text-decoration:none; }
 /*	Using sup for notes to self */
 sup {background: #fff;
 	color: #ddd;}
+
+#showQuestionsQuestion {
+	padding-top: 1em !important;
+}

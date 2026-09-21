@@ -38,8 +38,6 @@ function fnTransformCsvToArray(csvData) {
 	totalQuestions = arAnswers.length;
 }
 
-
-
 function fnStart() {
 	$("#sectionExplanationPage").hide(); // Neue Erklärungsseite standardmäßig verstecken
 	$("#sectionShowQuestions").hide();
@@ -101,23 +99,16 @@ function fnShowQuestionNumber(questionNumber) {
 		
 		$("#sectionShowQuestions").fadeOut(300).hide();		
         
-	// 1. KRITERIUM-HEADER & KRITERIUMS-ERKLÄRUNG
-        $("#showQuestionsHeader").empty().append("<h2>" + arCategories[questionNumber] + "</h2>");
-		if (arCategoryExplanations[questionNumber] && arCategoryExplanations[questionNumber] !== "") {
-			let formattedCatExpl = fnFormatText(arCategoryExplanations[questionNumber]);
-			$("#showQuestionsHeader").append("<p class='text-muted small font-weight-normal mb-0 mt-1'>" + formattedCatExpl + "</p>");
-		}
+		// 1. FRAGEN-ZÄHLER (Frage {x} von {y})
+		$("#showQuestionsCounter").text("Frage " + (questionNumber + 1) + " von " + totalQuestions);
 
-		// --- FRAGEN-ZÄHLER ---
-		$("#showQuestionsCounter").remove();
-		$("#showQuestionsQuestion").before(
-			"<p id='showQuestionsCounter' class='text-muted small'>" + 
-			"Frage " + (questionNumber + 1) + " von " + totalQuestions + 
-			"</p>"
-		);
+		// 2. KATEGORIE (Kategorie: {Kategorie})
+		$("#showQuestionsCategory").text("Kategorie: " + arCategories[questionNumber]);
 
-		// 2. FRAGE & FRAGE-ERKLÄRUNG (.html() nutzen!)
+		// 3. EIGENTLICHE FRAGE ({Frage})
         $("#showQuestionsQuestion").empty().html(fnFormatText(arQuestionsLong[questionNumber]));			
+		
+		// 4. ERKLÄRUNG ZUR FRAGE (falls vorhanden)
 		if (arExplanations[questionNumber] && arExplanations[questionNumber] !== "") {
 			let formattedExpl = fnFormatText(arExplanations[questionNumber]);
 			$("#showQuestionsExplanation").empty().html(formattedExpl).show();
@@ -205,14 +196,11 @@ function fnEvaluationCategories(resultsObj) {
 	tableContent += "</div></div>";
 	$("#resultsShort").append(tableContent);
 
-	// ==========================================
-	// NEU: HIER WIRD DER GESAMTBALKEN GENERIERT
-	// ==========================================
+	// GESAMTBALKEN GENERIEREN
 	var totalPercent = fnPercentage(totalAchieved, totalMax);
 	var totalBarClass = fnBarImage(totalPercent) + " progress-bar-striped progress-bar-animated";
 	var totalTextToShow = totalPercent + "% (" + totalAchieved + " / " + totalMax + " Punkte)";
 
-	// Hervorgehobenes Container-Layout mit blauem Rahmen und Schatten
 	var totalContent = "<div class='border border-primary rounded p-4 shadow-sm' role='row'>";
 	totalContent += "<div class='row align-items-center'>";
 	
@@ -221,19 +209,15 @@ function fnEvaluationCategories(resultsObj) {
 	totalContent += "</div>";
 
 	totalContent += "<div class='col col-12 col-md-8' role='cell'>";
-	// Höherer Balken (40px statt 30px)
 	totalContent += "<div class='progress' style='height: 40px; position: relative;'>";
 	
-	// Fortschrittsbalken rendern
 	totalContent += "<div class='progress-bar " + totalBarClass + "' role='progressbar' style='width:" + totalPercent + "%;' aria-valuenow='" + totalPercent + "' aria-valuemin='0' aria-valuemax='100'></div>";
-	// Text zentriert und vergrößert (1.1rem) darüberlegen
 	totalContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 40px; font-size: 1.1rem; pointer-events: none; z-index: 5;'>" + totalTextToShow + "</div>";
 	
 	totalContent += "</div></div>";
 	totalContent += "</div></div>";
 
 	$("#resultsTotal").append(totalContent).show();
-	// ==========================================
 
 	var detailedContent = "<h3>Detaillierte Antwortübersicht</h3>";
 	detailedContent += "<div class='table-responsive mt-3'>";
@@ -291,25 +275,15 @@ function fnFormatText(text) {
 
     var rawFormatName = selectedFormatName || "Dateiformat";
 
-    // 1. Markdown-Links [Label](URL) umwandeln
-    // ([^)]+) erfasst ALLES zwischen den Klammern (auch Leerzeichen und Sonderzeichen)
     var formatted = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match, label, url) {
         url = url.trim();
-        
-        // Platzhalter {selectedFormatName} URL-konform enkodieren (z.B. "PDF/A" -> "PDF%2FA")
         var encodedFormat = encodeURIComponent(rawFormatName);
         var cleanUrl = url.replace(/\{selectedFormatName\}/g, encodedFormat);
-        
-        // Unkodierte Leerzeichen in der URL sicherheitshalber in %20 umwandeln
         cleanUrl = cleanUrl.replace(/ /g, "%20");
-        
         return '<a href="' + cleanUrl + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
     });
 
-    // 2. Platzhalter auch im normalen Text (außerhalb von Links) ersetzen
     formatted = formatted.replace(/\{selectedFormatName\}/g, rawFormatName);
-
-    // 3. Zeilenumbrüche (\n) in HTML <br> umwandeln
     formatted = formatted.replace(/\n/g, "<br>");
 
     return formatted;

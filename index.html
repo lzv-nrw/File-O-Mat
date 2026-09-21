@@ -30,16 +30,13 @@
 			<div class="row border border-dark rounded p-4 mb-3">
 				<div class="col align-self-center">
 					<div id="descriptionHeading1"><h1>File-O-Mat</h1></div>
-					 <div id="descriptionHeading2"><!--<h2>Start</h2> -->
-					<p>Ein einfach zu bedienender Fragebogen, der hilft, Dateiformate auf ihre Eignung zur Langzeitverfügbarkeit zu evaluieren.</p>
+					 <div id="descriptionHeading2">
+						<p>Ein einfach zu bedienender Fragebogen, der hilft, Dateiformate auf ihre Eignung zur Langzeitverfügbarkeit zu evaluieren.</p>
 					</div>
 					
 					<div class="form-group mt-4">
 						<label for="formatNote"><strong>Zu evaluierendes Dateiformat (z.B. PDF, TIFF, XML):</strong></label>
 						<input type="text" class="form-control form-control-lg" id="formatNote" placeholder="Formatname hier eingeben...">
-					</div>
-					<div class="form-group mt-4">
-						<!--<p>Klicken Sie auf Start, um fortzufahren.</p>-->
 					</div>
 				</div>
 			</div>
@@ -50,7 +47,7 @@
 			</div>
 		</section>
 
-		<!-- SCHRITT 2: ERKLÄRUNGSEITE (Neu und eigenständig) -->
+		<!-- SCHRITT 2: ERKLÄRUNGSEITE -->
 		<section id="sectionExplanationPage" style="display:none;">
 			<div class="row border border-dark rounded p-4 mb-3">
 				<div class="col align-self-center">
@@ -72,10 +69,15 @@
 			<div class="row" tabindex="0" style="margin-top: 1.0em;">
 				<div class="col">
 					<div class="card border-dark mb-3 bg-transparent">
-					  <div class="card-header" id="showQuestionsHeader">Header</div>
 					  <div class="card-body">
-					    <h2 id="showQuestionsQuestion">Frage wird geladen...</h2>
-					    <p class="card-text text-muted small" id="showQuestionsExplanation" style="display: none;"></p>
+					    <!-- 1. Zähler -->
+					    <div id="showQuestionsCounter" class="text-muted"></div>
+					    <!-- 2. Kategorie -->
+					    <div id="showQuestionsCategory" class="text-muted"></div>
+					    <!-- 3. Frage -->
+					    <h2 id="showQuestionsQuestion" class="h4">Frage wird geladen...</h2>
+					    <!-- 4. Frage-Erklärung (optional) -->
+					    <p class="card-text text-muted" id="showQuestionsExplanation" style="display: none;"></p>
 					  </div>
 					</div>					
 				</div>
@@ -88,7 +90,7 @@
 		</section>
 	</main>
 
-<section id="sectionResults">
+	<section id="sectionResults">
 		<div class="row" id="results">
 			<div class="col">
 				<div id="descriptionHeading1"><h1>File-O-Mat</h1></div>
@@ -97,7 +99,7 @@
 				<!-- Hier landen die einzelnen Kriterien -->
 				<div id="resultsShort"></div>
 				
-				<!-- NEU: Hier landet der hervorgehobene Gesamtbalken -->
+				<!-- Hier landet der hervorgehobene Gesamtbalken -->
 				<div id="resultsTotal" class="mt-4 mb-4"></div>
 				
 				<!-- Hier landet die detaillierte Tabelle -->
@@ -105,23 +107,7 @@
 			</div>
 		</div>
 	</section>	
-	
-	
-<!-- 
-	<footer id="sectionFooter" class="mt-5">
-		<div class="row">	
-			<div class="col text-center">
-				<a class='btn btn-outline-dark btn-sm' role='button' href='index.html' id="restart">Neustart</a>
-			</div>			
-		</div>
-		<div class="text-center sm">
-		<p class="text-muted small font-weight-normal mb-0 mt-1">
-		<a role='link' href='https://github.com/christiansievers/File-O-Mat' id="GitHub">GitHub</a> Weiterer Text
-		</p>
-		</div>
-	</footer>
 </div>
- -->
 
 <script type="text/javascript">
     $(document).ready(function() { 
