@@ -12,7 +12,7 @@ Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nich
 
 [JHOVE](https://jhove.openpreservation.org/) identifiziert und validiert Formate wie PDF, TIFF, JPEG, XML, HTML und WAV. [veraPDF](https://verapdf.org/home/) kann auf PDF/A-Konformität validieren. [MediaConch](https://mediaarea.net/MediaConch) ist spezialisiert auf die Validierung von Audio- und Videodateien, insbesondere für die Formate Matroska (MKV), FFV1 und LPCM.
 
-[Google-Suche: Validierungswerkzeuge für das Format {selectedFormatName}](https://www.google.com/search?q=Gibt es aktuell verfügbare und lauffähige Validierungswerkzeuge für das Format {selectedFormatName}?)";Ja;2;Nein;0;Sonstige;1;;;;
+[Google-Suche: Validierungswerkzeuge für das Format {selectedFormatName}](https://www.google.com/search?q=Gibt es aktuell verfügbare und lauffähige Werkzeuge zur Validierung für das Format {selectedFormatName}?)";Ja;2;Nein;0;Sonstige;1;;;;
 Offenlegungsgrad;"Ist das Dateiformat offen dokumentiert?
 
 Je weniger dies der Fall ist, desto höher das Risiko, dass ein Dateiformat nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden können.";Ist das Dateiformat durch eine internationale Standardisierungsorganisation geprüft und als Standard veröffentlicht?;"Es ist von Vorteil, wenn ein Dateiformat international als Standard anerkannt ist.
@@ -55,7 +55,7 @@ Je weniger dies der Fall ist, desto höher ist das Risiko, dass man ohne externe
 
 ";Enthält das Format eine Selbstbeschreibung durch technische Metadaten?;"Technische Metadaten beinhalten unter anderem Angaben über das Dateiformat, über die Datenmenge und über die Software, mit der die Datei erstellt worden ist. [Quelle: NESTOR-Wiki](https://wiki.dnb.de/spaces/NESTOR/pages/95651769/Metadaten+Struktur)
 
-[Google-Suche: Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch deskriptive Metadaten?](https://www.google.com/search?q=Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch deskriptive Metadaten?)
+[Google-Suche: Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch technische Metadaten?](https://www.google.com/search?q=Enthält das Format {selectedFormatName} eine Selbstbeschreibung durch technische Metadaten?)
 
 Ein Sonderfall ist das sog. Magic Byte, eine Art von Signatur, die sich meist am Dateianfang befindet, und die Tools wie DROID eine einfache Identifikation des Dateiformates erlaubt.
 
@@ -103,4 +103,4 @@ Die geringe Komplexität eines Dateiformates geht oft mit einer besseren Verstä
 
 Die geringe Komplexität eines Dateiformates geht oft mit einer besseren Verständlichkeit und einer weniger fehleranfälligen Implementierung einher.
 
-[Google-Suche: Erlaubt die Spezifikation des Dateiformats {selectedFormatName} Varianten?](https://www.google.com/search?q=Erlaubt die Spezifikation des Dateiformats {selectedFormatName} Variantent?)";Ja;0;Nein;3;Sonstige;1;;;;
+[Google-Suche: Erlaubt die Spezifikation des Dateiformats {selectedFormatName} Varianten?](https://www.google.com/search?q=Erlaubt die Spezifikation des Dateiformats {selectedFormatName} Varianten?)";Ja;0;Nein;3;Sonstige;1;;;;
