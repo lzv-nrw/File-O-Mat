@@ -39,7 +39,7 @@ function fnTransformCsvToArray(csvData) {
 }
 
 function fnStart() {
-	$("#sectionExplanationPage").hide(); // Neue Erklärungsseite standardmäßig verstecken
+	$("#sectionExplanationPage").hide();
 	$("#sectionShowQuestions").hide();
 	$("#sectionVotingButtons").hide();
 	$("#sectionResults").hide();
@@ -283,6 +283,7 @@ for (const cat in resultsObj.max) {
 	}
 
 	$("#resultsDetailed").show();
+	$("#resultsExport").show(); 
 	$("#sectionResults").show();
 }
 
@@ -304,4 +305,103 @@ function fnFormatText(text) {
     formatted = formatted.replace(/\n/g, "<br>");
 
     return formatted;
+}
+
+
+// Funktion zum Exportieren der Auswertung als eigenständige Single-Page-HTML-Datei
+function fnExportHTML() {
+    // 1. Aktuellen HTML-Inhalt des Ergebnis-Containers auslesen
+    var resultsContent = $("#results").clone();
+
+    // Interaktive Elemente (z.B. Dropdown-Auswahlen in der detaillierten Ansicht) für den statischen Bericht aufbereiten
+    resultsContent.find("select").each(function() {
+        var selectedText = $(this).find("option:selected").text();
+        $(this).replaceWith("<span>" + selectedText + "</span>");
+    });
+
+    // Ausblenden/Entfernen von Elementen, die nicht im Export landen sollen
+    resultsContent.find("#resultsExport").remove();
+
+    // Detaillierte Ansicht in der Export-Datei standardmäßig aufklappen
+    resultsContent.find("details").attr("open", "open");
+
+    // Datum und Uhrzeit der Erstellung
+    var currentDate = new Date().toLocaleString("de-DE");
+
+    // 2. Einbettung der Styles direkt aus default.css
+    var fullHtml = `<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auswertung: ${selectedFormatName}</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <style>
+    body { 
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 12pt;
+      color: #000000;
+      padding: 2rem; 
+      background-color: #f8f9fa; 
+    }
+    .container { 
+      background-color: #ffffff; 
+      padding: 2rem; 
+      border-radius: 8px; 
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    }
+    
+    /* Styles direkt aus default.css */
+    h1 {
+      font-size: 1.8rem !important;
+      font-weight: bold !important;
+      margin-bottom: 1rem !important;
+    }
+
+    h2 {
+      font-size: 1.8rem !important;
+      margin-top: 1.5rem !important;
+      padding-bottom: 0.6rem !important;
+    }
+
+    summary {
+      font-size: 1.4rem !important;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #descriptionHeading1 {
+      padding: 30px 0 0 0;
+    }
+
+    @media print {
+      body { padding: 0; background-color: #fff; }
+      .container { box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    ${resultsContent.html()}
+    <hr class="mt-5">
+    <footer class="text-muted text-center" style="font-size: 0.9rem;">
+      <p>Automatisch generiert mit File-O-Mat am ${currentDate}</p>
+    </footer>
+  </div>
+</body>
+</html>`;
+
+    // 3. Download als .html-Datei im Browser anstoßen
+    var blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+    var fileName = "Auswertung_" + selectedFormatName.replace(/[^a-z0-9_-]/gi, "_") + ".html";
+
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
 }

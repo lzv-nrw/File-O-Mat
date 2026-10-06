@@ -90,7 +90,8 @@
 		</section>
 	</main>
 
-	<section id="sectionResults">
+	<!-- SCHRITT 4: ERGEBNISSE -->
+	<section id="sectionResults" style="display:none;">
 		<div class="row" id="results">
 			<div class="col">
 				<div id="descriptionHeading1"><h1>File-O-Mat</h1></div>
@@ -104,9 +105,20 @@
 				
 				<!-- Hier landet die detaillierte Tabelle -->
 				<div id="resultsDetailed" class="mt-5" style="display:none;"></div>
+
+				<!-- EXPORT & DRUCK BUTTONS (hier direkt eingebettet) -->
+				<div id="resultsExport" class="mt-4 mb-5 text-right">
+					<button type="button" class="btn btn-secondary mr-2" onclick="window.print();">
+						🖨️ Als PDF / Drucken
+					</button>
+					<button type="button" class="btn btn-success" onclick="fnExportHTML();">
+						💾 Auswertung als HTML exportieren
+					</button>
+				</div>
 			</div>
 		</div>
-	</section>	
+	</section>
+	
 </div>
 
 <script type="text/javascript">
