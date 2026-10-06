@@ -159,49 +159,51 @@ function fnEvaluationCategories(resultsObj) {
 	var totalMax = 0;
 	var totalAchieved = 0;
 
-    for (const cat in resultsObj.max) {
-        let maxPoints = resultsObj.max[cat];
-        let achievedPoints = resultsObj.scores[cat];
-        let percent = fnPercentage(achievedPoints, maxPoints);
-        let barClass = fnBarImage(percent);
+for (const cat in resultsObj.max) {
+    let maxPoints = resultsObj.max[cat];
+    let achievedPoints = resultsObj.scores[cat];
+    let percent = fnPercentage(achievedPoints, maxPoints);
+    let barClass = fnBarImage(percent);
 
-		// Gesamtsummen aufaddieren
-		totalMax += maxPoints;
-		totalAchieved += achievedPoints;
+    // Gesamtsummen aufaddieren
+    totalMax += maxPoints;
+    totalAchieved += achievedPoints;
 
-        tableContent += "<div class='border rounded mb-1' role='row'>";
-        tableContent += "<div class='row'>";
-        
-        tableContent += "<div class='col col-12 col-md-4' role='cell'>";
-        tableContent += cat;
-        tableContent += "</div>";
+    tableContent += "<div class='border rounded mb-1' role='row'>";
+    tableContent += "<div class='row align-items-center' style='min-height: 40px;'>";
+    
+    tableContent += "<div class='col col-12 col-md-4 pl-4' role='cell'>";
+    tableContent += cat;
+    tableContent += "</div>";
 
-        tableContent += "<div class='col col-12 col-md-8' role='cell'>";
-        tableContent += "<div class='progress' style='height: 30px; position: relative;'>";
-        
-        var textToShow = percent + "% (" + achievedPoints + " / " + maxPoints + " Punkte)";
-        
-        if (percent === 0) {
-            tableContent += "<div class='progress-bar " + barClass + "' role='progressbar' style='width: 0%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div>";
-            tableContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 30px; pointer-events: none;'>" + textToShow + "</div>";
-        } else {
-            tableContent += "<div class='progress-bar " + barClass + "' role='progressbar' style='width:"+percent+"%;' aria-valuenow='"+percent+"' aria-valuemin='0' aria-valuemax='100'></div>";
-            tableContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 30px; pointer-events: none;'>" + textToShow + "</div>";
-        }
-        
-        tableContent += "</div></div>";
-        tableContent += "</div></div>";
+    tableContent += "<div class='col col-12 col-md-8' role='cell'>";
+    tableContent += "<div class='progress' style='height: 30px; position: relative;'>";
+    
+    var textToShow = percent + "% (" + achievedPoints + " / " + maxPoints + " Punkte)";
+    
+    // Bei 0% wird die Breite auf 0.3% und bg-danger gesetzt, ansonsten ist das visuell nicht deutlich genug 
+    if (percent === 0) {
+        tableContent += "<div class='progress-bar bg-danger' role='progressbar' style='width: 0.3%;' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div>";
+    } else {
+        tableContent += "<div class='progress-bar " + barClass + "' role='progressbar' style='width:"+percent+"%;' aria-valuenow='"+percent+"' aria-valuemin='0' aria-valuemax='100'></div>";
     }
+    
+    tableContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 30px; pointer-events: none;'>" + textToShow + "</div>";
+    
+    tableContent += "</div></div>";
+    tableContent += "</div></div>";
+}
 
 	tableContent += "</div></div>";
 	$("#resultsShort").append(tableContent);
 
 	// GESAMTBALKEN GENERIEREN
-	var totalPercent = fnPercentage(totalAchieved, totalMax);
-	var totalBarClass = fnBarImage(totalPercent) + " progress-bar-striped progress-bar-animated";
-	var totalTextToShow = totalPercent + "% (" + totalAchieved + " / " + totalMax + " Punkte)";
+    var totalPercent = fnPercentage(totalAchieved, totalMax);
+    var totalBarClass = (totalPercent === 0 ? "bg-danger" : fnBarImage(totalPercent)) + "";
+    var totalWidth = (totalPercent === 0 ? 0.3 : totalPercent);
+    var totalTextToShow = totalPercent + "% (" + totalAchieved + " / " + totalMax + " Punkte)";
 
-	var totalContent = "<div class='border border-primary rounded p-4 shadow-sm' role='row'>";
+	var totalContent = "<div class='border rounded p-4 shadow-sm' role='row'>";
 	totalContent += "<div class='row align-items-center'>";
 	
 	totalContent += "<div class='col col-12 col-md-4' role='cell'>";
@@ -211,7 +213,7 @@ function fnEvaluationCategories(resultsObj) {
 	totalContent += "<div class='col col-12 col-md-8' role='cell'>";
 	totalContent += "<div class='progress' style='height: 40px; position: relative;'>";
 	
-	totalContent += "<div class='progress-bar " + totalBarClass + "' role='progressbar' style='width:" + totalPercent + "%;' aria-valuenow='" + totalPercent + "' aria-valuemin='0' aria-valuemax='100'></div>";
+	totalContent += "<div class='progress-bar " + totalBarClass + "' role='progressbar' style='width:" + totalWidth + "%;' aria-valuenow='" + totalPercent + "' aria-valuemin='0' aria-valuemax='100'></div>";
 	totalContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 40px; font-size: 1.1rem; pointer-events: none; z-index: 5;'>" + totalTextToShow + "</div>";
 	
 	totalContent += "</div></div>";
@@ -219,10 +221,11 @@ function fnEvaluationCategories(resultsObj) {
 
 	$("#resultsTotal").append(totalContent).show();
 
+	// DETAILLIERTE ANTWORTÜBERSICHT
 	var detailedContent = "<h3>Detaillierte Antwortübersicht</h3>";
 	detailedContent += "<div class='table-responsive mt-3'>";
-	detailedContent += "<table class='table table-bordered table-striped'>";
-	detailedContent += "<thead class='thead-dark'><tr><th style='width: 15%;'>Kriterium</th><th style='width: 45%;'>Frage</th><th style='width: 30%;'>Antwort</th><th style='width: 10%;'>Punkte</th></tr></thead>";
+	detailedContent += "<table class='table table-bordered'>";
+	detailedContent += "<thead class='thead-light'><tr><th style='width: 15%;'>Kriterium</th><th style='width: 45%;'>Frage</th><th style='width: 30%;'>Antwort</th><th style='width: 10%;'>Punkte</th></tr></thead>";
 	detailedContent += "<tbody id='detailedTableBody'></tbody></table></div>";
 
 	$("#resultsDetailed").append(detailedContent);
