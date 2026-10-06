@@ -146,7 +146,10 @@ function fnShowQuestionNumber(questionNumber) {
 	} 
 }
 
+// AUSWERTUNG
 function fnEvaluationCategories(resultsObj) {
+	// Prüfen, ob das <details>-Element aktuell geöffnet ist
+	var isDetailedOpen = $("#resultsDetailed details").prop("open");
 	$("#resultsShort").empty();
 	$("#resultsTotal").empty(); // Neu: Gesamt-Container leeren
 	$("#resultsDetailed").empty();
@@ -176,7 +179,7 @@ for (const cat in resultsObj.max) {
     tableContent += cat;
     tableContent += "</div>";
 
-    tableContent += "<div class='col col-12 col-md-8' role='cell'>";
+    tableContent += "<div class='col col-12 col-md-8 ' role='cell'>";
     tableContent += "<div class='progress' style='height: 30px; position: relative;'>";
     
     var textToShow = percent + "% (" + achievedPoints + " / " + maxPoints + " Punkte)";
@@ -188,7 +191,7 @@ for (const cat in resultsObj.max) {
         tableContent += "<div class='progress-bar " + barClass + "' role='progressbar' style='width:"+percent+"%;' aria-valuenow='"+percent+"' aria-valuemin='0' aria-valuemax='100'></div>";
     }
     
-    tableContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 30px; pointer-events: none;'>" + textToShow + "</div>";
+    tableContent += "<div class='w-100 position-absolute text-center' style='line-height: 30px; pointer-events: none; font-size: 1rem; font-weight: normal;'>" + textToShow + "</div>";
     
     tableContent += "</div></div>";
     tableContent += "</div></div>";
@@ -197,10 +200,11 @@ for (const cat in resultsObj.max) {
 	tableContent += "</div></div>";
 	$("#resultsShort").append(tableContent);
 
-	// GESAMTBALKEN GENERIEREN
+	// GESAMTPUNKTZAHL GENERIEREN
     var totalPercent = fnPercentage(totalAchieved, totalMax);
-    var totalBarClass = (totalPercent === 0 ? "bg-danger" : fnBarImage(totalPercent)) + "";
-    var totalWidth = (totalPercent === 0 ? 0.3 : totalPercent);
+    // nächste 2 Zeilen - progress bar raus
+    //var totalBarClass = (totalPercent === 0 ? "bg-danger" : fnBarImage(totalPercent)) + "";
+    //var totalWidth = (totalPercent === 0 ? 0.3 : totalPercent);
     var totalTextToShow = totalPercent + "% (" + totalAchieved + " / " + totalMax + " Punkte)";
 
 	var totalContent = "<div class='border rounded p-4 shadow-sm' role='row'>";
@@ -210,23 +214,33 @@ for (const cat in resultsObj.max) {
 	totalContent += "<p class='mb-0'>Gesamtpunktzahl</p>";
 	totalContent += "</div>";
 
-	totalContent += "<div class='col col-12 col-md-8' role='cell'>";
-	totalContent += "<div class='progress' style='height: 40px; position: relative;'>";
+    // nächste 6 Zeilen - progress bar raus
+	//totalContent += "<div class='col col-12 col-md-8' role='cell'>";
+	//totalContent += "<div class='progress' style='height: 40px; position: relative;'>";
 	
-	totalContent += "<div class='progress-bar " + totalBarClass + "' role='progressbar' style='width:" + totalWidth + "%;' aria-valuenow='" + totalPercent + "' aria-valuemin='0' aria-valuemax='100'></div>";
-	totalContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 40px; font-size: 1.1rem; pointer-events: none; z-index: 5;'>" + totalTextToShow + "</div>";
+	// totalContent += "<div class='progress-bar " + totalBarClass + "' role='progressbar' style='width:" + totalWidth + "%;' aria-valuenow='" + totalPercent + "' aria-valuemin='0' aria-valuemax='100'></div>";
+	// totalContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 40px; font-size: 1.1rem; pointer-events: none; z-index: 5;'>" + totalTextToShow + "</div>";
 	
-	totalContent += "</div></div>";
+	// totalContent += "</div></div>";
+	// totalContent += "</div></div>";
+
+    // nächste 4 Zeilen - stattdessen Gesamtpunktzahl ohne progress bar
+	totalContent += "<div class='col col-12 col-md-8 text-center mb-0' role='cell'>";
+	totalContent += totalTextToShow;
+	totalContent += "</div>";
 	totalContent += "</div></div>";
 
 	$("#resultsTotal").append(totalContent).show();
 
-	// DETAILLIERTE ANTWORTÜBERSICHT
-	var detailedContent = "<h3>Detaillierte Antwortübersicht</h3>";
+    // DETAILLIERTE ANTWORTÜBERSICHT (Einklappbar via <details> & <summary>)
+    var openAttr = isDetailedOpen ? " open" : "";
+	var detailedContent = "<details class='mt-4'" + openAttr + ">";
+	detailedContent += "<summary class='' style='cursor: pointer; user-select: none;'>Detaillierte Antwortübersicht</summary>";
 	detailedContent += "<div class='table-responsive mt-3'>";
 	detailedContent += "<table class='table table-bordered'>";
 	detailedContent += "<thead class='thead-light'><tr><th style='width: 15%;'>Kriterium</th><th style='width: 45%;'>Frage</th><th style='width: 30%;'>Antwort</th><th style='width: 10%;'>Punkte</th></tr></thead>";
 	detailedContent += "<tbody id='detailedTableBody'></tbody></table></div>";
+	detailedContent += "</details>";
 
 	$("#resultsDetailed").append(detailedContent);
 

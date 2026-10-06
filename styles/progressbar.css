@@ -8,17 +8,18 @@
 
 /* Grün in Ergebnis-Tabelle / Green in Results */
 .bg-success {
-	background: #29DB29 !important;
+	background-color: #64B464 !important;
 }
 
 
 /* Gelb in Ergebnis-Tabelle / Yellow in Results */
 .bg-warning {
-	color:#000;
+	background-color:#f3ba12 !important;
 }
 
 /* Rot in Ergebnis-Tabelle / Red in Results */
 .bg-danger {
+	background-color: #d63d3d !important;
 }
 
 /* Fortschrittsbalken über Fragen / Progressbar above questions */

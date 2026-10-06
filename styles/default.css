@@ -3,7 +3,7 @@
 /* BODY: background color, font, size and color */
 body {
 	font-family:Verdana, Arial, Helvetica, sans-serif; 
-/*	font-size:10pt; */
+    font-size:12pt;
 	color:#000000; 
 	/* background-image: linear-gradient(#EFC04F, #FFE08F); */ 
 	/* background-attachment: fixed; */
@@ -40,12 +40,6 @@ a:not(.btn):hover { color:#FF0000; text-decoration:none; }*/
 	padding: 0.2em; 
 }
 
-/* Gestreifte Spalten in den Ergebnis-Listen
-	Striped rows in results */
-.mow-row-striped:nth-child(odd) {
-	background-color: rgba(0, 0, 0, 0.05);
-}
-
 /*	FadeIn + FadeOut */
 
 @keyframes myFadeIn {
@@ -62,6 +56,36 @@ a:not(.btn):hover { color:#FF0000; text-decoration:none; }*/
 sup {background: #fff;
 	color: #ddd;}
 
-#showQuestionsQuestion {
+/*#showQuestionsQuestion {
 	padding-top: 1em !important;
+}*/
+
+h1 {
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem !important;
+}
+
+h2 {
+    font-size: 1.8rem !important;
+    margin-top: 1.5rem !important;
+    padding-bottom: 0.6rem !important;
+}
+
+summary {
+    font-size: 1.4rem !important;
+}
+
+
+/* h1 padding top, nur auf der letzten seite */
+#sectionResults #descriptionHeading1 {
+    padding: 30px 0 0 0;
+}
+
+/* Erzwingt normale Schriftgröße für Absätze und Aufzählungslisten im Erklärungstext */
+#descriptionExplanation p,
+#descriptionExplanation ul,
+#descriptionExplanation li {
+    font-size: 1rem !important; /* Alternativ 12pt */
+    font-weight: normal;
 }
