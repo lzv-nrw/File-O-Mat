@@ -169,11 +169,11 @@ function fnEvaluationCategories(resultsObj) {
 		totalMax += maxPoints;
 		totalAchieved += achievedPoints;
 
-        tableContent += "<div class='border rounded mow-row-striped p-3 mb-2' role='row'>";
+        tableContent += "<div class='border rounded mb-1' role='row'>";
         tableContent += "<div class='row'>";
         
         tableContent += "<div class='col col-12 col-md-4' role='cell'>";
-        tableContent += "<strong>" + cat + "</strong>";
+        tableContent += cat;
         tableContent += "</div>";
 
         tableContent += "<div class='col col-12 col-md-8' role='cell'>";
@@ -205,7 +205,7 @@ function fnEvaluationCategories(resultsObj) {
 	totalContent += "<div class='row align-items-center'>";
 	
 	totalContent += "<div class='col col-12 col-md-4' role='cell'>";
-	totalContent += "<p class='mb-0 font-weight-bold'>Gesamtpunktzahl</p>";
+	totalContent += "<p class='mb-0'>Gesamtpunktzahl</p>";
 	totalContent += "</div>";
 
 	totalContent += "<div class='col col-12 col-md-8' role='cell'>";
