@@ -25,44 +25,44 @@
 
 <div class="container container-fluid theme-showcase">
 	<main>
-		<!-- SCHRITT 1: STARTSEITE (Reine Namenseingabe) -->
-		<section id="sectionDescription">
-			<div class="row border border-dark rounded p-4 mb-3">
-				<div class="col align-self-center">
-					<div id="descriptionHeading1"><h1>File-O-Mat</h1></div>
-					 <div id="descriptionHeading2">
-						<p>Ein einfach zu bedienender Fragebogen, der hilft, Dateiformate auf ihre Eignung zur Langzeitverfügbarkeit zu evaluieren.</p>
-					</div>
-					
-					<div class="form-group mt-4">
-						<label for="formatNote"><strong>Zu evaluierendes Dateiformat (z.B. PDF, TIFF, XML):</strong></label>
-						<input type="text" class="form-control form-control-lg" id="formatNote" placeholder="Formatname hier eingeben...">
-					</div>
-				</div>
+<!-- SCHRITT 1: STARTSEITE (Reine Namenseingabe) -->
+<section id="sectionDescription">
+	<div class="row border border-dark rounded p-4 mb-3">
+		<div class="col align-self-center">
+			<div id="descriptionHeading1"><h1>File-O-Mat</h1></div>
+			<div id="descriptionHeading2">
+				<p>Ein einfach zu bedienender Fragebogen, der hilft, Dateiformate auf ihre Eignung zur Langzeitverfügbarkeit zu evaluieren.</p>
 			</div>
-			<div class="row">							
-				<div class="col">				
-				    <button type="button" class="btn btn-primary btn-lg float-right" onclick="fnHideWelcomeMessage()" id="descriptionButtonStart">Start</button>
-				</div>
+			
+			<div class="form-group mt-4 mb-0">
+				<label for="formatNote"><strong>Zu evaluierendes Dateiformat (z.B. PDF, TIFF, XML):</strong></label>
+				<input type="text" class="form-control form-control-lg" id="formatNote" placeholder="Formatname hier eingeben...">
 			</div>
-		</section>
+		</div>
+	</div>
+	<div class="row">							
+		<div class="col">				
+			<button type="button" class="btn btn-primary btn-lg float-right" onclick="fnHideWelcomeMessage()" id="descriptionButtonStart">Start</button>
+		</div>
+	</div>
+</section>
 
-		<!-- SCHRITT 2: ERKLÄRUNGSEITE -->
-		<section id="sectionExplanationPage" style="display:none;">
-			<div class="row border border-dark rounded mb-3">
-				<div class="col align-self-center">
-					<div id="explanationHeading1"><h1>File-O-Mat</h1></div>
-					<div id="explanationHeading2"><h2>Hinweise zur Evaluierung</h2></div>
-					
-					<div id="descriptionExplanation" class="lead"></div>
-				</div>
-			</div>
-			<div class="row">							
-				<div class="col">				
-				    <button type="button" class="btn btn-primary btn-lg float-right" onclick="fnStartQuestions()" id="explanationButtonNext">Fragen starten</button>
-				</div>
-			</div>
-		</section>
+<!-- SCHRITT 2: ERKLÄRUNGSEITE -->
+<section id="sectionExplanationPage" style="display:none;">
+	<div class="row border border-dark rounded p-4 mb-3">
+		<div class="col align-self-center">
+			<div id="explanationHeading1"><h1>File-O-Mat</h1></div>
+			<div id="explanationHeading2"><h2>Hinweise zur Evaluierung</h2></div>
+			
+			<div id="descriptionExplanation" class=""></div>
+		</div>
+	</div>
+	<div class="row">							
+		<div class="col">				
+			<button type="button" class="btn btn-primary btn-lg float-right" onclick="fnStartQuestions()" id="explanationButtonNext">Fragen starten</button>
+		</div>
+	</div>
+</section>
 
 		<!-- SCHRITT 3: FRAGEN -->
 		<section id="sectionShowQuestions">
