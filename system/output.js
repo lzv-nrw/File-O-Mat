@@ -44,7 +44,7 @@ function fnStart() {
 	$("#sectionVotingButtons").hide();
 	$("#sectionResults").hide();
 	
-	fnReadCsv("data/fragen_judge_fileformat.csv", function(csvData) {
+	fnReadCsv("data/File-O-Mat.csv", function(csvData) {
         fnTransformCsvToArray(csvData);
         
         // 1. Eindeutige Kriterien filtern
@@ -342,7 +342,7 @@ var fullHtml = `<!DOCTYPE html>
     body { 
       font-family: Verdana, Arial, Helvetica, sans-serif;
       font-size: 12pt;
-      color: #000000;
+      color: #192d46;
       padding: 2rem; 
       background-color: #f8f9fa; 
     }
