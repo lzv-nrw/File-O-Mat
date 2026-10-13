@@ -329,7 +329,7 @@ function fnExportHTML() {
     var currentDate = new Date().toLocaleString("de-DE");
 
     // 2. Einbettung der Styles direkt aus default.css
-    var fullHtml = `<!DOCTYPE html>
+var fullHtml = `<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
@@ -353,7 +353,6 @@ function fnExportHTML() {
       box-shadow: 0 0 10px rgba(0,0,0,0.1); 
     }
     
-    /* Styles direkt aus default.css */
     h1 {
       font-size: 1.8rem !important;
       font-weight: bold !important;
@@ -376,6 +375,12 @@ function fnExportHTML() {
       padding: 30px 0 0 0;
     }
 
+    a { color:#007bb1;}
+    a:link { color:#007bb1; } 
+    a:visited { color:#007bb1; }
+    a:active { color:#192d46; }
+    a:hover { color:#192d46; text-decoration:underline; }
+
     @media print {
       body { padding: 0; background-color: #fff; }
       .container { box-shadow: none; padding: 0; }
@@ -387,7 +392,7 @@ function fnExportHTML() {
     ${resultsContent.html()}
     <hr class="mt-5">
     <footer class="text-muted text-center" style="font-size: 0.9rem;">
-      <p>Automatisch generiert mit File-O-Mat am ${currentDate}</p>
+      <p>Generiert mit <a href="https://www.lzv.nrw/file-o-mat/">File-O-Mat</a> am ${currentDate}</p>
     </footer>
   </div>
 </body>

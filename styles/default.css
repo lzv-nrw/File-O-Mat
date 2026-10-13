@@ -4,18 +4,28 @@
 body {
 	font-family:Verdana, Arial, Helvetica, sans-serif; 
     font-size:12pt;
-	color:#000000; 
-	/* background-image: linear-gradient(#EFC04F, #FFE08F); */ 
-	/* background-attachment: fixed; */
+	color: #192d46;; 
 	}
-/*
-/* LINK-Farbe - AUSSER bei der Bootstrap-Klasse "btn" für Buttons. Dort wird der Bootstrap-Standard benutzt. */
-/* LINK-color - EXCEPT for Bootstrap button-class "btn". Use defaults there. */
-/*a:not(.btn) { color:#000000; text-decoration:underline;}
-a:not(.btn):link { color:#000000; } 
-a:not(.btn):visited { color:#404040; }
-a:not(.btn):active { color:#FF0000; }
-a:not(.btn):hover { color:#FF0000; text-decoration:none; }*/
+
+a { color:#007bb1;}
+a:link { color:#007bb1; } 
+a:visited { color:#007bb1; }
+a:active { color:#192d46; }
+a:hover { color:#192d46; text-decoration:underline; }
+
+/*  Überschreiben der Bootstrap .btn Klassen für die Buttons */
+.btn-primary, .btn-success, .btn-secondary {
+    background-color: #192d46 !important;
+    border-color: #192d46 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-secondary:hover,
+.btn-primary:focus, .btn-success:focus, .btn-secondary:focus {
+    background-color: #2ba1d5 !important;
+    border-color: #2ba1d5 !important;
+    color: #ffffff !important;
+}
 
 /* Willkommensnachricht (erster DIV)
    Welcome Message (first DIV) */
@@ -42,7 +52,7 @@ a:not(.btn):hover { color:#FF0000; text-decoration:none; }*/
 
 /*	FadeIn + FadeOut */
 
-@keyframes myFadeIn {
+/*@keyframes myFadeIn {
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
@@ -50,7 +60,7 @@ a:not(.btn):hover { color:#FF0000; text-decoration:none; }*/
 @keyframes myFadeOut {
 	from { opacity: 1; }
 	to { opacity: 0; }
-}
+}*/
 
 /*	Using sup for notes to self */
 sup {background: #fff;
