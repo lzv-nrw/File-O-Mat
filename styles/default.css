@@ -1,6 +1,4 @@
 
-/* BODY: Hintergrundfarbe, Schriftart, -groesse und -farbe */
-/* BODY: background color, font, size and color */
 body {
 	font-family:Verdana, Arial, Helvetica, sans-serif; 
     font-size:12pt;
@@ -52,7 +50,7 @@ a:hover { color:#192d46; text-decoration:underline; }
 
 /*	FadeIn + FadeOut */
 
-/*@keyframes myFadeIn {
+@keyframes myFadeIn {
 	from { opacity: 0; }
 	to { opacity: 1; }
 }
@@ -60,11 +58,7 @@ a:hover { color:#192d46; text-decoration:underline; }
 @keyframes myFadeOut {
 	from { opacity: 1; }
 	to { opacity: 0; }
-}*/
-
-/*	Using sup for notes to self */
-sup {background: #fff;
-	color: #ddd;}
+}
 
 /*#showQuestionsQuestion {
 	padding-top: 1em !important;
