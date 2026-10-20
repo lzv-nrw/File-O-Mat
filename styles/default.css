@@ -1,7 +1,26 @@
 
+/* Open Sans Regular */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/OpenSans-Regular.woff2')
+        format('woff2');
+}
+
+/* Open Sans SemiBold */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/OpenSans-Semibold.woff2') format('woff2');
+}
+
 body {
-	font-family:Verdana, Arial, Helvetica, sans-serif; 
-    font-size:12pt;
+	font-family: 'Open Sans', sans-serif;
+    font-size:16pt;
 	color: #192d46;; 
 	}
 
@@ -86,10 +105,3 @@ summary {
     padding: 30px 0 0 0;
 }
 
-/* Erzwingt normale Schriftgröße für Absätze und Aufzählungslisten im Erklärungstext */
-#descriptionExplanation p,
-#descriptionExplanation ul,
-#descriptionExplanation li {
-    font-size: 1rem !important; /* Alternativ 12pt */
-    font-weight: normal;
-}

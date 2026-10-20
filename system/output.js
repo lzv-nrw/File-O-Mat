@@ -337,10 +337,11 @@ var fullHtml = `<!DOCTYPE html>
   <title>Auswertung: ${selectedFormatName}</title>
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body { 
-      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 12pt;
       color: #192d46;
       padding: 2rem; 
