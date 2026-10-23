@@ -1,4 +1,3 @@
-
 /* Open Sans Regular */
 @font-face {
     font-family: 'Open Sans';
@@ -18,17 +17,27 @@
     src: url('../fonts/OpenSans-Semibold.woff2') format('woff2');
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-	font-family: 'Open Sans', sans-serif;
-    font-size:16pt;
-	color: #192d46;; 
-	}
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16pt;
+    font-weight: 400;
+    color: #192d46;
+    margin: 0;
+    padding-bottom: 60px; /* Leave space so content doesn't overlap the fixed footer */
+}
 
 a { color:#007bb1;}
 a:link { color:#007bb1; } 
 a:visited { color:#007bb1; }
 a:active { color:#192d46; }
 a:hover { color:#192d46; text-decoration:underline; }
+
+}
 
 /*  Überschreiben der Bootstrap .btn Klassen für die Buttons */
 .btn-primary, .btn-success, .btn-secondary {
@@ -61,27 +70,22 @@ a:hover { color:#192d46; text-decoration:underline; }
     margin-top: 1.0em;
 }
 
-
 /* BOOTSTRAP */
 .row {
-	padding: 0.2em; 
+    padding: 0.2em; 
 }
 
-/*	FadeIn + FadeOut */
+/*  FadeIn + FadeOut */
 
 @keyframes myFadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes myFadeOut {
-	from { opacity: 1; }
-	to { opacity: 0; }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
-
-/*#showQuestionsQuestion {
-	padding-top: 1em !important;
-}*/
 
 h1 {
     font-size: 1.8rem !important;
@@ -99,9 +103,77 @@ summary {
     font-size: 1.4rem !important;
 }
 
-
 /* h1 padding top, nur auf der letzten seite */
 #sectionResults #descriptionHeading1 {
     padding: 30px 0 0 0;
 }
 
+/* ==========================================================================
+   HEADER & FOOTER STYLES
+   ========================================================================== */
+
+/* Header Container */
+.site-header {
+    width: 100%;
+    height: 65px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #deeaee;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    box-shadow: 0px -2px 10px 5px #f3f3f3;
+}
+
+.header-container,
+.header-container a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Header Logo - Feste Höhe in Pixeln verhindert das "Explodieren" des Bildes */
+.header-logo {
+    height: 40px; /* Passt ideal in den 65px hohen Header */
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* Footer (Absolute Bottom) */
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+
+.site-footer a,
+.site-footer a:link,
+.site-footer a:visited {
+    color: #777; 
+    text-decoration: none; }
+.site-footer a:active { color:#007bb1; }
+.site-footer a:hover { color:#007bb1; text-decoration:underline; }
+
+
+/* Make the paragraph act as a full-width flex container for the links */
+.site-footer p {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;               /* Limits how far apart they stretch on huge screens */
+    margin: 0 auto;                 /* Centers the block */
+    padding: 0 2rem;                /* Adds breathing room on the left and right edges */
+    box-sizing: border-box;
+    font-size: 12pt;       /* smaller than body */
+    font-weight: 300;     /* Same weight as body */
+}
