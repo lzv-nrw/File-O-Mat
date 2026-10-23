@@ -301,6 +301,9 @@ function fnExportHTML() {
     // 1. Aktuellen HTML-Inhalt des Ergebnis-Containers auslesen
     var resultsContent = $("#results").clone();
 
+    // "File-O-Mat" als h1-Überschrift an den Anfang des Exports setzen
+    resultsContent.prepend('<div id="descriptionHeading1"><h1>File-O-Mat</h1></div>');
+
     // Interaktive Elemente (z.B. Dropdown-Auswahlen in der detaillierten Ansicht) für den statischen Bericht aufbereiten
     resultsContent.find("select").each(function() {
         var selectedText = $(this).find("option:selected").text();
@@ -317,7 +320,7 @@ function fnExportHTML() {
     var currentDate = new Date().toLocaleString("de-DE");
 
     // 2. Einbettung der Styles direkt aus default.css
-var fullHtml = `<!DOCTYPE html>
+    var fullHtml = `<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
@@ -361,7 +364,6 @@ var fullHtml = `<!DOCTYPE html>
     }
 
     #descriptionHeading1 {
-      padding: 30px 0 0 0;
     }
 
     a { color:#007bb1;}
