@@ -202,9 +202,6 @@ for (const cat in resultsObj.max) {
 
 	// GESAMTPUNKTZAHL GENERIEREN
     var totalPercent = fnPercentage(totalAchieved, totalMax);
-    // nächste 2 Zeilen - progress bar raus
-    //var totalBarClass = (totalPercent === 0 ? "bg-danger" : fnBarImage(totalPercent)) + "";
-    //var totalWidth = (totalPercent === 0 ? 0.3 : totalPercent);
     var totalTextToShow = totalPercent + "% (" + totalAchieved + " / " + totalMax + " Punkte)";
 
 	var totalContent = "<div class='border rounded p-4 shadow-sm' role='row'>";
@@ -214,17 +211,8 @@ for (const cat in resultsObj.max) {
 	totalContent += "<p class='mb-0'>Gesamtpunktzahl</p>";
 	totalContent += "</div>";
 
-    // nächste 6 Zeilen - progress bar raus
-	//totalContent += "<div class='col col-12 col-md-8' role='cell'>";
-	//totalContent += "<div class='progress' style='height: 40px; position: relative;'>";
-	
-	// totalContent += "<div class='progress-bar " + totalBarClass + "' role='progressbar' style='width:" + totalWidth + "%;' aria-valuenow='" + totalPercent + "' aria-valuemin='0' aria-valuemax='100'></div>";
-	// totalContent += "<div class='text-dark w-100 position-absolute text-center font-weight-bold' style='line-height: 40px; font-size: 1.1rem; pointer-events: none; z-index: 5;'>" + totalTextToShow + "</div>";
-	
-	// totalContent += "</div></div>";
-	// totalContent += "</div></div>";
 
-    // nächste 4 Zeilen - stattdessen Gesamtpunktzahl ohne progress bar
+    // Gesamtpunktzahl ohne progress bar
 	totalContent += "<div class='col col-12 col-md-8 text-center mb-0' role='cell'>";
 	totalContent += totalTextToShow;
 	totalContent += "</div>";
