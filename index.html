@@ -156,23 +156,16 @@ $('#formatNote').on('input', function() {
     }
 });
 
-// Wenn der Fragebogen gestartet wurde oder Antworten getätigt wurden, 
-// können Sie hasUnsavedChanges ebenfalls auf true setzen.
-
+// Wenn der Fragebogen gestartet wurde hasUnsavedChanges ebenfalls auf true
 // 2. Das beforeunload-Event greift, wenn die Seite verlassen wird
 window.addEventListener('beforeunload', function (e) {
     if (hasUnsavedChanges) {
-        // Standard für moderne Browser erfordert das Setzen von returnValue
         e.preventDefault();
         e.returnValue = ''; 
     }
 });
 
-// 3. Wenn der Nutzer die Daten absendet oder regulär fortfährt, 
-// setzen Sie den Status wieder auf false, damit keine Warnung kommt:
-function fnResetChanges() {
-    hasUnsavedChanges = false;
-}
+// 3. könnte noch nach Drucken oder HTML-Export den Status wieder auf false setzem, damit keine Warnung kommt. Noch nicht umgesetzt.
 </script>	
 </body>
 </html>
