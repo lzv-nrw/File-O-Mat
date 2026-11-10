@@ -8,15 +8,6 @@
         format('woff2');
 }
 
-/* Open Sans SemiBold */
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url('../fonts/OpenSans-Semibold.woff2') format('woff2');
-}
-
 html {
     position: relative;
     min-height: 100%;
@@ -118,16 +109,16 @@ summary {
 
 .header-container {
     width: 100%;
-    height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between; /* Verteilt Logo links und Titel rechts */
+    align-items: flex-end; /* Aligns both flex items to the exact same bottom line */
+    justify-content: space-between;
 }
 
-.header-container a {
-    height: 100%;
+.header-container > a {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    height: auto; 
+    text-decoration: none;
 }
 
 /* Header Logo */
@@ -135,14 +126,23 @@ summary {
     height: 40px; 
     width: auto;
     object-fit: contain;
+    display: block;
 }
 
-/* Header Titel (ganz rechts platziert, behält h1-Größe bei) */
+/* Header Titel */
 .header-title {
     font-size: 1.8rem !important;
     font-weight: bold !important;
     margin: 0 !important;
+    line-height: 1 !important;
     color: #192d46;
+}
+
+.header-title a {
+    color: #192d46;
+    text-decoration: none;
+    display: block;
+    line-height: 1 !important;
 }
 
 /* Footer (Absolute Bottom) */
