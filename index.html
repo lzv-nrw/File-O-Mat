@@ -141,6 +141,38 @@
     $(document).ready(function() { 
         fnStart(); 		
     });
+
+
+// Warnung geben damit eingegebene Daten nicht ungewollt verloren gehen
+
+    let hasUnsavedChanges = false;
+
+// 1. Erkennen, ob der Nutzer etwas in das Textfeld/Formular eingibt
+$('#formatNote').on('input', function() {
+    if ($(this).val().trim() !== "") {
+        hasUnsavedChanges = true;
+    } else {
+        hasUnsavedChanges = false;
+    }
+});
+
+// Wenn der Fragebogen gestartet wurde oder Antworten getätigt wurden, 
+// können Sie hasUnsavedChanges ebenfalls auf true setzen.
+
+// 2. Das beforeunload-Event greift, wenn die Seite verlassen wird
+window.addEventListener('beforeunload', function (e) {
+    if (hasUnsavedChanges) {
+        // Standard für moderne Browser erfordert das Setzen von returnValue
+        e.preventDefault();
+        e.returnValue = ''; 
+    }
+});
+
+// 3. Wenn der Nutzer die Daten absendet oder regulär fortfährt, 
+// setzen Sie den Status wieder auf false, damit keine Warnung kommt:
+function fnResetChanges() {
+    hasUnsavedChanges = false;
+}
 </script>	
 </body>
 </html>
