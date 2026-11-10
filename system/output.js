@@ -56,13 +56,13 @@ function fnStart() {
         }
         
         // 2. Erklärungstext aufbauen
-        var htmlContent = "<p>Es gibt insgesamt " + totalQuestions + " Fragen. Die Fragen sind nach folgenden Kriterien gruppiert:</p>";
+        var htmlContent = "<p>Es gibt insgesamt " + totalQuestions + " Fragen, die dabei helfen, das Risiko einzuschätzen, dass ein Format in Zukunft nicht mehr nutzbar sein könnte. Die Fragen sind nach folgenden Kriterien gruppiert:</p>";
         htmlContent += "<ul class='text-left'>";
         for (var j = 0; j < uniqueCategories.length; j++) {
             htmlContent += "<li>" + uniqueCategories[j] + "</li>";
         }
         htmlContent += "</ul>";
-        htmlContent += "<p>Die meisten Fragen lassen sich mit 'Ja' oder 'Nein' beantworten. Die Antwort 'Sonstige' kann gewählt werden, wenn 'Ja' oder 'Nein' nicht zutreffen, die Antwort nicht bekannt ist, oder die Frage übersprungen werden soll.</p><p>Alle Antworten sind durch Punkte gewichtet. Ein höheres Risiko wird durch eine niedrigere Punktzahl ausgedrückt, und umgekehrt bedeutet eine höhere Punktzahl ein geringeres Risiko.</p><p>Die Auswertung bietet die Möglichkeit, die Antworten noch einmal anzupassen.</p><p>🚧 Dieses Tool befindet sich noch in der Testphase. Fragen, Anregungen und inhaltliche Hinweise bitte an <a href='mailto:christian.sievers@hbz-nrw.de?subject=File-O-Mat'>christian.sievers@hbz-nrw.de</a> 🚧</p>";
+        htmlContent += "<p>Die meisten Fragen lassen sich mit „Ja” oder „Nein” beantworten. Die Antwort „Sonstige” kann gewählt werden, wenn „Ja” oder „Nein” nicht zutrifft, die Antwort nicht bekannt ist oder die Frage übersprungen werden soll.</p><p>Alle Antworten sind durch Punkte gewichtet. Die Auswertung summiert die Punkte je Kategorie und gibt somit einen Überblick über die Stärken und Schwächen eines Formats. Eine niedrige Gesamtpunktzahl weist auf ein erhöhtes Risiko hin. Eine höhere Gesamtpunktzahl bedeutet hingegen ein geringeres Risiko und zeigt, dass ein Format eher für die Langzeitverfügbarkeit geeignet ist.</p><p>Die Auswertung bietet die Möglichkeit, die Antworten noch einmal anzupassen und kann in verschiedene Formate exportiert werden.</p><p>🚧 Dieses Tool befindet sich noch in der Testphase. Fragen, Anregungen und inhaltliche Hinweise bitte an <a href='mailto:christian.sievers@hbz-nrw.de?subject=File-O-Mat'>christian.sievers@hbz-nrw.de</a> 🚧</p>";
         
         // 3. Text einfügen
         $("#descriptionExplanation").empty().append(htmlContent);
