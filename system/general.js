@@ -1,7 +1,11 @@
-// GENERAL.JS http://www.mat-o-wahl.de
+// GENERAL.JS based on http://www.mat-o-wahl.de
 // General functions / Allgemeine Verarbeitungen
 // License: GPL 3
 // Mathias Steudtner http://www.medienvilla.com
+// Modified for / Angepasst für
+// File-O-Mat / Evaluate File Formats
+// https://hbz-nrw.de/ https://www.lzv.nrw/
+// Christian Sievers
 
 var version = "0.6.0.custom.categories";
 

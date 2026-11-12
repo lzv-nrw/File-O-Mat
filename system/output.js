@@ -2,6 +2,11 @@
 // Output of information / Ausgabe der Informationen
 // License: GPL 3
 // Mathias Steudtner http://www.medienvilla.com
+// Modified for / Angepasst für
+// File-O-Mat / Evaluate File Formats
+// https://hbz-nrw.de/ https://www.lzv.nrw/
+// Christian Sievers
+
 
 var arCategoryExplanations = new Array(); // Globales Array für Kriterien-Erklärungen
 var arExplanations = new Array();         // Globales Array für Frage-Erklärungen
