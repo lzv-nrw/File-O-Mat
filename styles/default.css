@@ -58,6 +58,11 @@ a:hover { color:#192d46; text-decoration:underline; }
     margin-top: 1.0em;
 }
 
+#resultsHeading {
+    padding-left: 5px;
+}
+
+
 /* BOOTSTRAP */
 .row {
     padding: 0.2em; 
@@ -134,6 +139,7 @@ summary {
     font-size: 1.8rem !important;
     font-weight: bold !important;
     margin: 0 !important;
+    transform: translateY(3px); /* Verschiebt rein optisch den Textnach unten */
     line-height: 1 !important;
     color: #192d46;
 }

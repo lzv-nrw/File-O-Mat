@@ -363,14 +363,13 @@ function fnExportHTML() {
       user-select: none;
     }
 
-    #descriptionHeading1 {
-    }
-
     a { color:#007bb1;}
     a:link { color:#007bb1; } 
     a:visited { color:#007bb1; }
     a:active { color:#192d46; }
     a:hover { color:#192d46; text-decoration:underline; }
+
+    #resultsHeading { padding-left: 5px; }
 
     @media print {
       body { padding: 0; background-color: #fff; }
