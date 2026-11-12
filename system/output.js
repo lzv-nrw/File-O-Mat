@@ -374,6 +374,8 @@ function fnExportHTML() {
     a:active { color:#192d46; }
     a:hover { color:#192d46; text-decoration:underline; }
 
+    #descriptionHeading1 { text-align: right; }
+
     #resultsHeading { padding-left: 5px; }
 
     @media print {
