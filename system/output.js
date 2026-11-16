@@ -124,6 +124,9 @@ function fnShowQuestionNumber(questionNumber) {
 		$("#sectionShowQuestions").fadeIn(300);
 		$("#sectionVotingButtons").fadeOut(300).hide();
         
+        // Altes Kommentarfeld entfernen, falls noch vorhanden
+        $("#sectionCommentBox").remove();
+
         // Dynamische Buttons für diese Frage generieren
         $("#dynamicVotingButtons").empty();
         let currentAnswers = arAnswers[questionNumber];
@@ -133,15 +136,40 @@ function fnShowQuestionNumber(questionNumber) {
             let btn = $("<button type='button' class='btn btn-primary btn-lg btn-block'></button>")
                 .text(currentAnswers[i].text)
                 .click(function() {
+                    // Kommentar direkt aus dem Textfeld auslesen (falls bereits was eingetippt wurde)
+                    let commentVal = $("#questionComment").length ? $("#questionComment").val() : (arPersonalPositions[questionNumber] ? arPersonalPositions[questionNumber].comment : "");
+                    
                     arPersonalPositions[questionNumber] = { 
                         text: currentAnswers[i].text, 
-                        weight: currentAnswers[i].weight 
+                        weight: currentAnswers[i].weight,
+                        comment: commentVal
                     };
                     fnShowQuestionNumber(questionNumber);
                 });
             btnCol.append(btn);
             $("#dynamicVotingButtons").append(btnCol);
         }
+
+        // Kommentar-Eingabefeld unter den Antwort-Buttons hinzufügen
+        let currentComment = (arPersonalPositions[questionNumber] && arPersonalPositions[questionNumber].comment) ? arPersonalPositions[questionNumber].comment : "";
+        let commentDiv = $("<div class='row mt-3' id='sectionCommentBox'></div>");
+        let commentCol = $("<div class='col'></div>");
+        let commentGroup = $("<div class='form-group'></div>");
+        commentGroup.append("<label for='questionComment'>Kommentar (optional):</label>");
+        
+        let commentInput = $("<textarea class='form-control' id='questionComment' rows='2' placeholder='Anmerkung oder kurze Begründung zur Antwort...'></textarea>")
+            .val(currentComment)
+            .on('input', function() {
+                if (!arPersonalPositions[questionNumber]) {
+                    arPersonalPositions[questionNumber] = { text: "", weight: 0, comment: "" };
+                }
+                arPersonalPositions[questionNumber].comment = $(this).val();
+            });
+
+        commentGroup.append(commentInput);
+        commentCol.append(commentGroup);
+        commentDiv.append(commentCol);
+        $("#dynamicVotingButtons").after(commentDiv);
 
 		$("#sectionVotingButtons").fadeIn(300);
 
@@ -225,23 +253,26 @@ for (const cat in resultsObj.max) {
 
 	$("#resultsTotal").append(totalContent).show();
 
-    // DETAILLIERTE ANTWORTÜBERSICHT (Einklappbar via <details> & <summary>)
+	// DETAILLIERTE ANTWORTÜBERSICHT (Einklappbar via <details> & <summary>)
     var openAttr = isDetailedOpen ? " open" : "";
 	var detailedContent = "<details class='mt-4'" + openAttr + ">";
 	detailedContent += "<summary class='' style='cursor: pointer; user-select: none;'>Detaillierte Antwortübersicht</summary>";
 	detailedContent += "<div class='table-responsive mt-3'>";
 	detailedContent += "<table class='table table-bordered'>";
-	detailedContent += "<thead class='thead-light'><tr><th style='width: 15%;'>Kriterium</th><th style='width: 45%;'>Frage</th><th style='width: 30%;'>Antwort</th><th style='width: 10%;'>Punkte</th></tr></thead>";
+	// Spalte "Punkte" entfernt, Breiten für Kriterium, Frage, Antwort und Kommentar angepasst:
+	detailedContent += "<thead class='thead-light'><tr><th style='width: 15%;'>Kriterium</th><th style='width: 35%;'>Frage</th><th style='width: 20%;'>Antwort (Punkte)</th><th style='width: 30%;'>Kommentar</th></tr></thead>";
 	detailedContent += "<tbody id='detailedTableBody'></tbody></table></div>";
 	detailedContent += "</details>";
 
 	$("#resultsDetailed").append(detailedContent);
 
-	for (let i = 0; i < totalQuestions; i++) {
+
+for (let i = 0; i < totalQuestions; i++) {
 		let cat = arCategories[i];
 		let question = arQuestionsLong[i];
-		let currentAnswerText = arPersonalPositions[i].text;
-		let answerWeight = arPersonalPositions[i].weight;
+		let currentAnswerText = arPersonalPositions[i] ? arPersonalPositions[i].text : "";
+		let answerWeight = arPersonalPositions[i] ? arPersonalPositions[i].weight : 0;
+		let currentComment = arPersonalPositions[i] && arPersonalPositions[i].comment ? arPersonalPositions[i].comment : "";
 
 		let row = $("<tr></tr>");
 		row.append($("<td></td>").text(cat));
@@ -251,7 +282,7 @@ for (const cat in resultsObj.max) {
 		let selectEl = $("<select class='form-control form-control-sm'></select>");
 		
 		for (let j = 0; j < arAnswers[i].length; j++) {
-			let opt = $("<option></option>").val(j).text(arAnswers[i][j].text);
+			let opt = $("<option></option>").val(j).text(arAnswers[i][j].text + " (" + arAnswers[i][j].weight + ")");
 			if (arAnswers[i][j].text === currentAnswerText) {
 				opt.attr("selected", "selected");
 			}
@@ -260,9 +291,11 @@ for (const cat in resultsObj.max) {
 
 		selectEl.change(function() {
 			let selectedIdx = $(this).val();
+			let existingComment = arPersonalPositions[i] ? arPersonalPositions[i].comment : "";
 			arPersonalPositions[i] = {
 				text: arAnswers[i][selectedIdx].text,
-				weight: arAnswers[i][selectedIdx].weight
+				weight: arAnswers[i][selectedIdx].weight,
+				comment: existingComment
 			};
 			let updatedResults = fnEvaluation();
 			fnEvaluationCategories(updatedResults);
@@ -270,10 +303,36 @@ for (const cat in resultsObj.max) {
 
 		tdAnswer.append(selectEl);
 		row.append(tdAnswer);
-		row.append($("<td></td>").addClass("font-weight-bold text-center").text(answerWeight));
+
+		// Kommentar-Spalte (Textarea statt Input für automatischen Zeilenumbruch / Vollanzeige)
+		let tdComment = $("<td></td>");
+		let commentInputTable = $("<textarea class='form-control form-control-sm' rows='1' placeholder='Kommentar...' style='resize: vertical; min-height: 31px;'></textarea>")
+			.val(currentComment)
+			.on('input', function() {
+				// Automatische Höhenanpassung beim Tippen
+				this.style.height = 'auto';
+				this.style.height = (this.scrollHeight) + 'px';
+
+				if (!arPersonalPositions[i]) {
+					arPersonalPositions[i] = { text: currentAnswerText, weight: answerWeight, comment: "" };
+				}
+				arPersonalPositions[i].comment = $(this).val();
+			});
+
+		// Initiale Höhenanpassung falls bereits Text beim Laden vorhanden ist
+		setTimeout(function() {
+			commentInputTable.each(function() {
+				this.style.height = 'auto';
+				this.style.height = (this.scrollHeight) + 'px';
+			});
+		}, 50);
+
+		tdComment.append(commentInputTable);
+		row.append(tdComment);
 
 		$("#detailedTableBody").append(row);
 	}
+
 
 	$("#resultsDetailed").show();
 	$("#resultsExport").show(); 
@@ -313,6 +372,12 @@ function fnExportHTML() {
     resultsContent.find("select").each(function() {
         var selectedText = $(this).find("option:selected").text();
         $(this).replaceWith("<span>" + selectedText + "</span>");
+    });
+
+	// Eingabefelder und Textareas für Kommentare in der detaillierten Ansicht für den Export in Text umwandeln
+    resultsContent.find("textarea.form-control-sm, input[type='text'].form-control-sm").each(function() {
+        var commentVal = $(this).val();
+        $(this).replaceWith("<span>" + (commentVal ? commentVal : "-") + "</span>");
     });
 
     // Ausblenden/Entfernen von Elementen, die nicht im Export landen sollen

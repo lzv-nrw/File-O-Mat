@@ -12,8 +12,7 @@ var version = "0.6.0.custom.categories";
 var arCategories = [];
 var arQuestionsLong = [];
 var arAnswers = []; // Speichert die Antwortmöglichkeiten + Gewichtung pro Frage
-var arPersonalPositions = []; // Speichert das gewählte Antwort-Objekt {text, weight}
-
+var arPersonalPositions = []; // Speichert das gewählte Antwort-Objekt {text, weight, comment}
 var activeQuestion = 0; 
 var totalQuestions = 0;
 
