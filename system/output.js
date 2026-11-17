@@ -157,7 +157,7 @@ function fnShowQuestionNumber(questionNumber) {
         let commentGroup = $("<div class='form-group'></div>");
         commentGroup.append("<label for='questionComment'>Kommentar (optional):</label>");
         
-        let commentInput = $("<textarea class='form-control' id='questionComment' rows='2' placeholder='Anmerkung oder kurze Begründung zur Antwort...'></textarea>")
+        let commentInput = $("<textarea class='form-control' id='questionComment' rows='2' placeholder='Kurze Begründung oder Anmerkung zur Antwort...'></textarea>")
             .val(currentComment)
             .on('input', function() {
                 if (!arPersonalPositions[questionNumber]) {
