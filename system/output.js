@@ -150,11 +150,11 @@ function fnShowQuestionNumber(questionNumber) {
             $("#dynamicVotingButtons").append(btnCol);
         }
 
-        // Kommentar-Eingabefeld unter den Antwort-Buttons hinzufügen
+        // Kommentar-Eingabefeld zwischen Frage-Box und Antwort-Buttons einfügen
         let currentComment = (arPersonalPositions[questionNumber] && arPersonalPositions[questionNumber].comment) ? arPersonalPositions[questionNumber].comment : "";
-        let commentDiv = $("<div class='row mt-3' id='sectionCommentBox'></div>");
+        let commentDiv = $("<div class='row mt-2 mb-3' id='sectionCommentBox'></div>");
         let commentCol = $("<div class='col'></div>");
-        let commentGroup = $("<div class='form-group'></div>");
+        let commentGroup = $("<div class='form-group mb-0'></div>");
         commentGroup.append("<label for='questionComment'>Kommentar (optional):</label>");
         
         let commentInput = $("<textarea class='form-control' id='questionComment' rows='2' placeholder='Kurze Begründung oder Anmerkung zur Antwort...'></textarea>")
@@ -169,7 +169,7 @@ function fnShowQuestionNumber(questionNumber) {
         commentGroup.append(commentInput);
         commentCol.append(commentGroup);
         commentDiv.append(commentCol);
-        $("#dynamicVotingButtons").after(commentDiv);
+        $("#sectionVotingButtons").before(commentDiv);
 
 		$("#sectionVotingButtons").fadeIn(300);
 
