@@ -1,7 +1,9 @@
 Kriterium_deu;;Frage (deu);Erklärung_deu;Antwort_1;Gewichtung_1;Antwort_2;Gewichtung_2;Antwort_3;Gewichtung_3;Antwort_4;Gewichtung_4;Antwort_5;Gewichtung_5
 Offenlegung;;Handelt es sich um ein offenes oder ein proprietäres Format? ;"Proprietäre Formate sind Formate, deren Nutzungs- oder Lizenzrechte ausschließlich einem Unternehmen, einer Organisation oder einer Einzelperson zustehen. Häufig ist die Nutzung dieser Formate durch Patente oder Geschäftsgeheimnisse eingeschränkt. Diese Formate können Probleme bei der Langzeitverfügbarkeit mit sich bringen, wie beispielsweise Obsoleszenz oder mangelnde Abwärtskompatibilität.
 
-Siehe z. B. [Wikipedia - Offenes Format](https://de.wikipedia.org/wiki/Offenes_Format) oder [File Format Guidance for Researchers](https://doi.org/10.5281/zenodo.20288160)";offenes Format;2;proprietäres Format;0;Sonstige;1;;;;
+Siehe z. B. [Wikipedia - Offenes Format](https://de.wikipedia.org/wiki/Offenes_Format) oder [File Format Guidance for Researchers](https://doi.org/10.5281/zenodo.20288160)
+
+[Google-Suche: Handelt es sich bei {selectedFormatName} um ein offenes oder ein proprietäres Dateiformat?](https://www.google.com/search?q=Handelt es sich bei {selectedFormatName} um ein offenes oder ein proprietäres Dateiformat?)";offenes Format;2;proprietäres Format;0;Sonstige;1;;;;
 Offenlegung;;Ist die Spezifikation des Dateiformats frei zugänglich?;"Anders gefragt: Hat jede*r das Recht oder die Möglichkeit, die Spezifikation zu lesen, anzuwenden, und basierend darauf Werkzeuge zu entwickeln?
 
 Der freie Zugang zur Spezifikation von Dateiformaten erlaubt es im Fall der Formatobsoleszenz, Lese- und Konvertierungsprogramme neu zu erstellen. Andererseits besteht das Risiko, dass das Format nicht mehr migrierbar ist, weil keine Konvertierungsprogramme entwickelt werden können.
