@@ -39,6 +39,8 @@ function fnEvaluation() {
 	$("#sectionShowQuestions").empty().hide();
 	$("#sectionVotingButtons").empty().hide();	
 	$("#sectionNavigation").empty().hide();
+	// Kommentarfeld der letzten Frage verbergen (liegt außerhalb der Sektionen)
+	$("#sectionCommentBox").empty().hide();
 	
 	var categoryScores = {};
 	var categoryMax = {};
